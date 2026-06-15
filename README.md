@@ -6,6 +6,8 @@ This project provisions a production-style AWS infrastructure using Terraform wi
 
 ## Architecture
 
+![AWS Architecture](docs/architecture-diagram.png)
+
 Internet → Application Load Balancer → Target Group → EC2 Instance (Nginx)
 
 ### Components
