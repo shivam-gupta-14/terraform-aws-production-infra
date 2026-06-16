@@ -9,3 +9,4 @@ variable "security_group_id" {
 variable "target_group_arn" {
   type = string
 }
+

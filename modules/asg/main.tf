@@ -37,6 +37,15 @@ resource "aws_launch_template" "web" {
   ]
 
   user_data = local.user_data
+
+
+  tag_specifications {
+    resource_type = "instance"
+
+    tags = {
+      Name = "asg-web-server"
+    }
+  }
 }
 
 
@@ -62,6 +71,12 @@ resource "aws_autoscaling_group" "web" {
   }
 
   health_check_type = "ELB"
+
+  tag {
+    key                 = "Name"
+    value               = "asg-web-server"
+    propagate_at_launch = true
+  }
 }
 
 

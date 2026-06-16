@@ -15,8 +15,4 @@ variable "alb_sg_id" {
 }
 
 
-variable "instance_id" {
-  type = string
-}
-
 

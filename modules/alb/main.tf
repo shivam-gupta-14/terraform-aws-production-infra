@@ -12,19 +12,9 @@ resource "aws_lb_target_group" "tg" {
 
 
 
-resource "aws_lb_target_group_attachment" "ec2" {
-  target_group_arn = aws_lb_target_group.tg.arn
-
-  target_id = var.instance_id
-
-  port = 80
-}
-
-
-
 resource "aws_lb" "alb" {
 
-  name               = "production-alb"
+  name = "production-alb"
 
   load_balancer_type = "application"
 

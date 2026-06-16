@@ -16,6 +16,7 @@ module "security_group" {
 }
 
 
+/*
 module "ec2" {
 
   source = "./modules/ec2"
@@ -24,7 +25,7 @@ module "ec2" {
 
   security_group_id = module.security_group.ec2_sg_id
 }
-
+*/
 
 
 module "alb" {
@@ -38,11 +39,11 @@ module "alb" {
 
   alb_sg_id = module.security_group.alb_sg_id
 
-  instance_id = module.ec2.instance_id
+
 }
 
 
-/*
+
 module "asg" {
 
   source = "./modules/asg"
@@ -55,9 +56,8 @@ module "asg" {
   security_group_id = module.security_group.ec2_sg_id
 
   target_group_arn = module.alb.target_group_arn
-}
-*/
 
+}
 
 
 
