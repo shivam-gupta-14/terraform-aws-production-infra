@@ -8,15 +8,6 @@ This project provisions a production-style AWS infrastructure using Terraform wi
 
 ![AWS Architecture](docs/architecture-diagram.png)
 
-Internet
-    |
-ALB
-    |
-Target Group
-    |
-Auto Scaling Group
-   / \
-EC2  EC2
 
 ### Components
 
