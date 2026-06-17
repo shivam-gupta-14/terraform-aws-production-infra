@@ -147,16 +147,16 @@ Terraform apply
 
 ### Application Load Balancer
 
-![ALB](docs/screenshots/alb.png)
+![ALB](docs/alb.png)
 
 ### Auto Scaling Group
 
-![ASG](docs/screenshots/asg.png)
+![ASG](docs/asg.png)
 
 ### GitHub Actions CI Pipeline
 
-![CI](docs/screenshots/github-actions-ci.png)
+![CI](docs/github-actions-ci.png)
 
 ### Terraform Apply Approval Workflow
 
-![CD](docs/screenshots/github-actions-cd.png)
+![CD](docs/github-actions-cd.png)
