@@ -8,7 +8,15 @@ This project provisions a production-style AWS infrastructure using Terraform wi
 
 ![AWS Architecture](docs/architecture-diagram.png)
 
-Internet → Application Load Balancer → Target Group → EC2 Instance (Nginx)
+Internet
+    |
+ALB
+    |
+Target Group
+    |
+Auto Scaling Group
+   / \
+EC2  EC2
 
 ### Components
 
@@ -23,30 +31,39 @@ Internet → Application Load Balancer → Target Group → EC2 Instance (Nginx)
 * Target Group
 * Listener
 * Remote Terraform State (S3 Backend)
+* Launch Template
+* Auto Scaling Group (ASG)
+* GitHub Actions CI Pipeline
+* GitHub Actions CD Pipeline
 
 ## Project Structure
 
-```text
-terraform-aws-production-infra/
-├── main.tf
-├── variables.tf
-├── outputs.tf
-├── backend.tf
-├── modules/
-│   ├── vpc/
-│   ├── security-group/
-│   ├── ec2/
-│   └── alb/
-```
+modules/
+├── vpc/
+├── security-group/
+├── alb/
+└── asg/
+
+.github/
+└── workflows/
+    ├── terraform.yml
+    └── terraform-apply.yml
+
 
 ## Features
 
-* Modular Terraform design
-* Remote state management using S3
-* Automated EC2 provisioning
-* Nginx installation through User Data
-* Application Load Balancer integration
-* Security Group based access control
+- Modular Terraform Architecture
+- Remote State Management using Amazon S3
+- Multi-AZ VPC Design
+- Public and Private Subnets
+- Internet Gateway and Route Tables
+- Security Groups
+- Application Load Balancer (ALB)
+- Launch Templates
+- Auto Scaling Group (ASG)
+- GitHub Actions CI Pipeline
+- GitHub Actions CD Pipeline with Manual Approval
+- Automated Nginx Provisioning using User Data
 
 ## Prerequisites
 
@@ -87,23 +104,59 @@ Destroy infrastructure:
 terraform destroy
 ```
 
+## CI/CD Workflow
+
+Developer Push
+      |
+GitHub Actions
+      |
+Terraform fmt
+      |
+Terraform validate
+      |
+Terraform plan
+      |
+Manual Approval
+      |
+Terraform apply
+
+
 ## Future Enhancements
 
-* Auto Scaling Group (ASG)
-* Launch Template
-* GitHub Actions CI/CD
-* Route53
-* HTTPS using ACM
-* Multi-environment deployment (Dev/Stage/Prod)
+- Route53 Integration
+- HTTPS using ACM Certificate
+- CloudWatch Monitoring
+- OIDC Authentication for GitHub Actions
+- Multi-Environment Deployment (Dev/Stage/Prod)
+
 
 ## Skills Demonstrated
 
-* AWS Networking
-* Infrastructure as Code (Terraform)
-* Load Balancing
-* Security Groups
-* EC2 Provisioning
-* Remote State Management
-* Git & GitHub
-* Linux Administration
+- AWS Networking
+- Infrastructure as Code (Terraform)
+- Load Balancing
+- Auto Scaling
+- GitHub Actions
+- CI/CD Automation
+- Security Groups
+- Remote State Management
+- Git & GitHub
+- Linux Administration
 
+## Screenshots
+
+### Application Load Balancer
+
+![ALB](docs/screenshots/alb.png)
+
+### Auto Scaling Group
+
+![ASG](docs/screenshots/asg.png)
+
+### GitHub Actions CI Pipeline
+
+![CI](docs/screenshots/github-actions-ci.png)
+
+### Terraform Apply Approval Workflow
+
+![CD](docs/screenshots/github-actions-cd.png)
