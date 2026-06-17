@@ -29,6 +29,7 @@ This project provisions a production-style AWS infrastructure using Terraform wi
 
 ## Project Structure
 
+```text
 modules/
 ├── vpc/
 ├── security-group/
@@ -39,7 +40,7 @@ modules/
 └── workflows/
     ├── terraform.yml
     └── terraform-apply.yml
-
+```
 
 ## Features
 
