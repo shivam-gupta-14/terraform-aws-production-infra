@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project provisions a production-style AWS infrastructure using Terraform with a modular architecture. The infrastructure includes networking, security, compute resources, and load balancing components.
+This project provisions a production-style AWS infrastructure using Terraform with a modular architecture. The infrastructure includes networking, security, compute resources and load balancing components.
 
 ## Architecture
 
